@@ -96,8 +96,8 @@ def diff21(n):
 # parrot_trouble(False, 6) → False
 
 def parrot_trouble(talking, hour):
-  isTroubleTime = hour < 7 or hour > 20
-  return talking and isTroubleTime
+  is_trouble_time = hour < 7 or hour > 20
+  return talking and is_trouble_time
 
 # parrot_trouble(True, 6) → True	True	OK	
 # parrot_trouble(True, 7) → False	False	OK	
@@ -142,10 +142,10 @@ def makes10(a, b):
 # near_hundred(89) → False
 
 def near_hundred(n):
-  distFrom100 = abs(100 - n)
-  distFrom200 = abs(200 - n)
+  dist_from_100 = abs(100 - n)
+  dist_from_200 = abs(200 - n)
 
-  return (distFrom100 <= 10) or (distFrom200 <= 10)
+  return (dist_from_100 <= 10) or (dist_from_200 <= 10)
 
 # near_hundred(93) → True	True	OK	
 # near_hundred(90) → True	True	OK	
