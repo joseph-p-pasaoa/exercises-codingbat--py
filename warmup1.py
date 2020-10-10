@@ -169,3 +169,83 @@ def near_hundred(n):
 
 
 
+# POS_NEG
+# Given 2 int values, return True if one is negative and one is positive.
+# Except if the parameter "negative" is True, then return True only if both are negative.
+#
+# pos_neg(1, -1, False) → True
+# pos_neg(-1, 1, False) → True
+# pos_neg(-4, -5, True) → True
+
+def pos_neg(a, b, negative):
+  if negative:
+    return (a < 0 and b < 0)
+
+  return (a < 0 and b > 0) or (a > 0 and b < 0)
+
+# pos_neg(1, -1, False) → True	True	OK	
+# pos_neg(-1, 1, False) → True	True	OK	
+# pos_neg(-4, -5, True) → True	True	OK	
+# pos_neg(-4, -5, False) → False	False	OK	
+# pos_neg(-4, 5, False) → True	True	OK	
+# pos_neg(-4, 5, True) → False	False	OK	
+# pos_neg(1, 1, False) → False	False	OK	
+# pos_neg(-1, -1, False) → False	False	OK	
+# pos_neg(1, -1, True) → False	False	OK	
+# pos_neg(-1, 1, True) → False	False	OK	
+# pos_neg(1, 1, True) → False	False	OK	
+# pos_neg(-1, -1, True) → True	True	OK	
+# pos_neg(5, -5, False) → True	True	OK	
+# pos_neg(-6, 6, False) → True	True	OK	
+# pos_neg(-5, -6, False) → False	False	OK	
+# pos_neg(-2, -1, False) → False	False	OK	
+# pos_neg(1, 2, False) → False	False	OK	
+# pos_neg(-5, 6, True) → False	False	OK	
+# pos_neg(-5, -5, True) → True	True	OK
+
+
+
+# NOT_STRING
+# Given a string, return a new string where "not " has been added to the front. However, if the string already begins with "not", return the string unchanged.
+
+# not_string('candy') → 'not candy'
+# not_string('x') → 'not x'
+# not_string('not bad') → 'not bad'
+
+def not_string(str):
+  return str if str[0:3] == 'not' else 'not {}'.format(str)
+
+# not_string('candy') → 'not candy'	'not candy'	OK	
+# not_string('x') → 'not x'	'not x'	OK	
+# not_string('not bad') → 'not bad'	'not bad'	OK	
+# not_string('bad') → 'not bad'	'not bad'	OK	
+# not_string('not') → 'not'	'not'	OK	
+# not_string('is not') → 'not is not'	'not is not'	OK	
+# not_string('no') → 'not no'	'not no'	OK
+
+
+
+# FRONT_BACK
+# Given a string, return a new string where the first and last chars have been exchanged.
+
+# front_back('code') → 'eodc'
+# front_back('a') → 'a'
+# front_back('ab') → 'ba'
+
+def front_back(str):
+  if len(str) < 2:
+    return str
+  first, rest, last = str[:1], str[1:-1], str[-1:]
+  return last + rest + first
+
+# front_back('code') → 'eodc'	'eodc'	OK	
+# front_back('a') → 'a'	'a'	OK	
+# front_back('ab') → 'ba'	'ba'	OK	
+# front_back('abc') → 'cba'	'cba'	OK	
+# front_back('') → ''	''	OK	
+# front_back('Chocolate') → 'ehocolatC'	'ehocolatC'	OK	
+# front_back('aavJ') → 'Java'	'Java'	OK	
+# front_back('hello') → 'oellh'	'oellh'	OK
+
+
+
