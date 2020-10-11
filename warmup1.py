@@ -225,6 +225,29 @@ def not_string(str):
 
 
 
+# MISSING_CHAR
+# Given a non-empty string and an int n, return a new string where the char at index n has been removed. The value of n will be a valid index of a char in the original string (i.e. n will be in the range 0..len(str)-1 inclusive).
+#
+# missing_char('kitten', 1) → 'ktten'
+# missing_char('kitten', 0) → 'itten'
+# missing_char('kitten', 4) → 'kittn'
+
+def missing_char(str, n):
+  return str[:n] + str[n + 1:]
+
+# missing_char('kitten', 1) → 'ktten'	'ktten'	OK	
+# missing_char('kitten', 0) → 'itten'	'itten'	OK	
+# missing_char('kitten', 4) → 'kittn'	'kittn'	OK	
+# missing_char('Hi', 0) → 'i'	'i'	OK	
+# missing_char('Hi', 1) → 'H'	'H'	OK	
+# missing_char('code', 0) → 'ode'	'ode'	OK	
+# missing_char('code', 1) → 'cde'	'cde'	OK	
+# missing_char('code', 2) → 'coe'	'coe'	OK	
+# missing_char('code', 3) → 'cod'	'cod'	OK	
+# missing_char('chocolate', 8) → 'chocolat'	'chocolat'	OK
+
+
+
 # FRONT_BACK
 # Given a string, return a new string where the first and last chars have been exchanged.
 
@@ -249,3 +272,24 @@ def front_back(str):
 
 
 
+# FRONT3
+# Given a string, we'll say that the front is the first 3 chars of the string. If the string length is less than 3, the front is whatever is there. Return a new string which is 3 copies of the front.
+#
+# front3('Java') → 'JavJavJav'
+# front3('Chocolate') → 'ChoChoCho'
+# front3('abc') → 'abcabcabc'
+
+def front3(str):
+  to_repeat = str[:3]
+  output = ''
+  for _ in range(3):
+    output += to_repeat
+  return output
+
+# front3('Java') → 'JavJavJav'	'JavJavJav'	OK	
+# front3('Chocolate') → 'ChoChoCho'	'ChoChoCho'	OK	
+# front3('abc') → 'abcabcabc'	'abcabcabc'	OK	
+# front3('abcXYZ') → 'abcabcabc'	'abcabcabc'	OK	
+# front3('ab') → 'ababab'	'ababab'	OK	
+# front3('a') → 'aaa'	'aaa'	OK	
+# front3('') → ''	''	OK
