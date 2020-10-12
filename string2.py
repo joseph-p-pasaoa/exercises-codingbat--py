@@ -51,3 +51,41 @@ def count_hi(str):
 # count_hi('Hi is no HI on ahI') → 0	0	OK	
 # count_hi('hiho not HOHIhi') → 2	2	OK	
 # other tests OK
+
+
+
+# CAT_DOG
+# Return True if the string "cat" and "dog" appear the same number of times in the given string.
+
+# cat_dog('catdog') → True
+# cat_dog('catcat') → False
+# cat_dog('1cat1cadodog') → True
+
+def cat_dog(str):
+  balance = 0
+  for i in range(len(str) - 2):
+    slice = str[i:i + 3]
+    if slice == 'cat':
+      balance += 1
+    elif slice == 'dog':
+      balance -= 1
+
+  return balance == 0
+
+# cat_dog('catdog') → True	True	OK	
+# cat_dog('catcat') → False	False	OK	
+# cat_dog('1cat1cadodog') → True	True	OK	
+# cat_dog('catxxdogxxxdog') → False	False	OK	
+# cat_dog('catxdogxdogxcat') → True	True	OK	
+# cat_dog('catxdogxdogxca') → False	False	OK	
+# cat_dog('dogdogcat') → False	False	OK	
+# cat_dog('dogogcat') → True	True	OK	
+# cat_dog('dog') → False	False	OK	
+# cat_dog('cat') → False	False	OK	
+# cat_dog('ca') → True	True	OK	
+# cat_dog('c') → True	True	OK	
+# cat_dog('') → True	True	OK	
+# other tests OK
+
+
+
