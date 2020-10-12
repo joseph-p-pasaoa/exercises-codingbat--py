@@ -56,7 +56,7 @@ def count_hi(str):
 
 # CAT_DOG
 # Return True if the string "cat" and "dog" appear the same number of times in the given string.
-
+#
 # cat_dog('catdog') → True
 # cat_dog('catcat') → False
 # cat_dog('1cat1cadodog') → True
@@ -89,3 +89,104 @@ def cat_dog(str):
 
 
 
+# COUNT_CODE
+# Return the number of times that the string "code" appears anywhere in the given string, except we'll
+# accept any letter for the 'd', so "cope" and "cooe" count.
+#
+# count_code('aaacodebbb') → 1
+# count_code('codexxcode') → 2
+# count_code('cozexxcope') → 2
+
+def count_code(str):
+  counter = 0
+  for i in range(len(str) - 3):
+    if str[i] == 'c' and str[i + 1] == 'o' and str[i + 3] == 'e':
+      counter += 1
+
+  return counter
+
+# count_code('aaacodebbb') → 1	1	OK	
+# count_code('codexxcode') → 2	2	OK	
+# count_code('cozexxcope') → 2	2	OK	
+# count_code('cozfxxcope') → 1	1	OK	
+# count_code('xxcozeyycop') → 1	1	OK	
+# count_code('cozcop') → 0	0	OK	
+# count_code('abcxyz') → 0	0	OK	
+# count_code('code') → 1	1	OK	
+# count_code('ode') → 0	0	OK	
+# count_code('c') → 0	0	OK	
+# count_code('') → 0	0	OK	
+# count_code('AAcodeBBcoleCCccoreDD') → 3	3	OK	
+# count_code('AAcodeBBcoleCCccorfDD') → 2	2	OK	
+# count_code('coAcodeBcoleccoreDD') → 3	3	OK	
+# other tests OK
+
+
+
+# END_OTHER
+# Given two strings, return True if either of the strings appears at the very end of the other string,
+# ignoring upper/lower case differences (in other words, the computation should not be "case sensitive").
+# Note: s.lower() returns the lowercase version of a string.
+#
+# end_other('Hiabc', 'abc') → True
+# end_other('AbC', 'HiaBc') → True
+# end_other('abc', 'abXabc') → True
+
+def end_other(a, b):
+  short = a if len(a) < len(b) else b
+  long = b if len(a) < len(b) else a
+
+  is_at_end = long.lower().endswith(short.lower())
+
+  return is_at_end
+
+# end_other('Hiabc', 'abc') → True	True	OK	
+# end_other('AbC', 'HiaBc') → True	True	OK	
+# end_other('abc', 'abXabc') → True	True	OK	
+# end_other('Hiabc', 'abcd') → False	False	OK	
+# end_other('Hiabc', 'bc') → True	True	OK	
+# end_other('Hiabcx', 'bc') → False	False	OK	
+# end_other('abc', 'abc') → True	True	OK	
+# end_other('xyz', '12xyz') → True	True	OK	
+# end_other('yz', '12xz') → False	False	OK	
+# end_other('Z', '12xz') → True	True	OK	
+# end_other('12', '12') → True	True	OK	
+# end_other('abcXYZ', 'abcDEF') → False	False	OK	
+# end_other('ab', 'ab12') → False	False	OK	
+# end_other('ab', '12ab') → True	True	OK	
+# other tests OK
+
+
+
+# XYZ_THERE
+# Return True if the given string contains an appearance of "xyz" where the xyz is not directly
+# preceeded by a period (.). So "xxyz" counts but "x.xyz" does not.
+#
+# xyz_there('abcxyz') → True
+# xyz_there('abc.xyz') → False
+# xyz_there('xyz.abc') → True
+
+def xyz_there(str):
+  for i in range(len(str) - 2):
+    if i == 0 and str[:3] == 'xyz':
+      return True
+    elif str[i + 1:i + 4] == 'xyz' and not str[i] == '.':
+      return True
+
+  return False
+
+# xyz_there('abcxyz') → True	True	OK	
+# xyz_there('abc.xyz') → False	False	OK	
+# xyz_there('xyz.abc') → True	True	OK	
+# xyz_there('abcxy') → False	False	OK	
+# xyz_there('xyz') → True	True	OK	
+# xyz_there('xy') → False	False	OK	
+# xyz_there('x') → False	False	OK	
+# xyz_there('') → False	False	OK	
+# xyz_there('abc.xyzxyz') → True	True	OK	
+# xyz_there('abc.xxyz') → True	True	OK	
+# xyz_there('.xyz') → False	False	OK	
+# xyz_there('12.xyz') → False	False	OK	
+# xyz_there('12xyz') → True	True	OK	
+# xyz_there('1.xyz.xyz2.xyz') → False	False	OK	
+# other tests OK
