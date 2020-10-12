@@ -2,7 +2,9 @@
 
 
 # CIGAR_PARTY
-# When squirrels get together for a party, they like to have cigars. A squirrel party is successful when the number of cigars is between 40 and 60, inclusive. Unless it is the weekend, in which case there is no upper bound on the number of cigars. Return True if the party with the given values is successful, or False otherwise.
+# When squirrels get together for a party, they like to have cigars. A squirrel party is successful when the
+# number of cigars is between 40 and 60, inclusive. Unless it is the weekend, in which case there is no upper
+# bound on the number of cigars. Return True if the party with the given values is successful, or False otherwise.
 #
 # cigar_party(30, False) → False
 # cigar_party(50, False) → True
@@ -99,7 +101,10 @@ def squirrel_play(temp, is_summer):
 
 
 # CAUGHT_SPEEDING
-# You are driving a little too fast, and a police officer stops you. Write code to compute the result, encoded as an int value: 0=no ticket, 1=small ticket, 2=big ticket. If speed is 60 or less, the result is 0. If speed is between 61 and 80 inclusive, the result is 1. If speed is 81 or more, the result is 2. Unless it is your birthday -- on that day, your speed can be 5 higher in all cases.
+# You are driving a little too fast, and a police officer stops you. Write code to compute the result,
+# encoded as an int value: 0=no ticket, 1=small ticket, 2=big ticket. If speed is 60 or less, the result is 0.
+# If speed is between 61 and 80 inclusive, the result is 1. If speed is 81 or more, the result is 2.
+# Unless it is your birthday -- on that day, your speed can be 5 higher in all cases.
 #
 # caught_speeding(60, False) → 0
 # caught_speeding(65, False) → 1
@@ -220,4 +225,68 @@ def love6(a, b):
 # love6(8, 3) → False	False	OK	
 # love6(3, 3) → True	True	OK	
 # love6(3, 4) → False	False	OK	
+# other tests OK
+
+
+
+# IN1TO10
+# Given a number n, return True if n is in the range 1..10, inclusive. Unless outside_mode is True, in
+# which case return True if the number is less or equal to 1, or greater or equal to 10.
+#
+# in1to10(5, False) → True
+# in1to10(11, False) → False
+# in1to10(11, True) → True
+
+def in1to10(n, outside_mode):
+  if outside_mode:
+    return n <= 1 or n >= 10
+  else:
+    return n >= 1 and n <= 10
+
+# in1to10(5, False) → True	True	OK	
+# in1to10(11, False) → False	False	OK	
+# in1to10(11, True) → True	True	OK	
+# in1to10(10, False) → True	True	OK	
+# in1to10(10, True) → True	True	OK	
+# in1to10(9, False) → True	True	OK	
+# in1to10(9, True) → False	False	OK	
+# in1to10(1, False) → True	True	OK	
+# in1to10(1, True) → True	True	OK	
+# in1to10(0, False) → False	False	OK	
+# in1to10(0, True) → True	True	OK	
+# in1to10(-1, False) → False	False	OK	
+# in1to10(-1, True) → True	True	OK	
+# in1to10(99, False) → False	False	OK	
+# in1to10(-99, True) → True	True	OK	
+# other tests OK
+
+
+
+# NEAR_TEN
+# Given a non-negative number "num", return True if num is within 2 of a multiple of 10. Note: (a % b) is
+# the remainder of dividing a by b, so (7 % 5) is 2. See also: Introduction to Mod
+#
+# near_ten(12) → True
+# near_ten(17) → False
+# near_ten(19) → True
+
+def near_ten(num):
+  relative_of_10 = num % 10
+  return relative_of_10 <= 2 or relative_of_10 >= 8
+
+# near_ten(12) → True	True	OK	
+# near_ten(17) → False	False	OK	
+# near_ten(19) → True	True	OK	
+# near_ten(31) → True	True	OK	
+# near_ten(6) → False	False	OK	
+# near_ten(10) → True	True	OK	
+# near_ten(11) → True	True	OK	
+# near_ten(21) → True	True	OK	
+# near_ten(22) → True	True	OK	
+# near_ten(23) → False	False	OK	
+# near_ten(54) → False	False	OK	
+# near_ten(155) → False	False	OK	
+# near_ten(158) → True	True	OK	
+# near_ten(3) → False	False	OK	
+# near_ten(1) → True	True	OK	
 # other tests OK
