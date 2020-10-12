@@ -161,3 +161,100 @@ def first_half(str):
 
 
 
+# WITHOUT_END
+# Given a string, return a version without the first and last char, so "Hello" yields "ell".
+# The string length will be at least 2.
+#
+# without_end('Hello') → 'ell'
+# without_end('java') → 'av'
+# without_end('coding') → 'odin'
+
+def without_end(str):
+  return str[1:-1]
+
+# without_end('Hello') → 'ell'	'ell'	OK	
+# without_end('java') → 'av'	'av'	OK	
+# without_end('coding') → 'odin'	'odin'	OK	
+# without_end('code') → 'od'	'od'	OK	
+# without_end('ab') → ''	''	OK	
+# without_end('Chocolate!') → 'hocolate'	'hocolate'	OK	
+# without_end('kitten') → 'itte'	'itte'	OK	
+# without_end('woohoo') → 'ooho'	'ooho'	OK	
+# other tests OK
+
+
+
+# COMBO_STRING
+# Given 2 strings, a and b, return a string of the form short+long+short, with the shorter string on
+# the outside and the longer string on the inside. The strings will not be the same length,
+# but they may be empty (length 0).
+#
+# combo_string('Hello', 'hi') → 'hiHellohi'
+# combo_string('hi', 'Hello') → 'hiHellohi'
+# combo_string('aaa', 'b') → 'baaab'
+
+def combo_string(a, b):
+  short = a if len(a) < len(b) else b
+  long = b if len(a) < len(b) else a
+
+  return ''.join([short, long, short])
+
+# combo_string('Hello', 'hi') → 'hiHellohi'	'hiHellohi'	OK	
+# combo_string('hi', 'Hello') → 'hiHellohi'	'hiHellohi'	OK	
+# combo_string('aaa', 'b') → 'baaab'	'baaab'	OK	
+# combo_string('b', 'aaa') → 'baaab'	'baaab'	OK	
+# combo_string('aaa', '') → 'aaa'	'aaa'	OK	
+# combo_string('', 'bb') → 'bb'	'bb'	OK	
+# combo_string('aaa', '1234') → 'aaa1234aaa'	'aaa1234aaa'	OK	
+# combo_string('aaa', 'bb') → 'bbaaabb'	'bbaaabb'	OK	
+# combo_string('a', 'bb') → 'abba'	'abba'	OK	
+# combo_string('bb', 'a') → 'abba'	'abba'	OK	
+# combo_string('xyz', 'ab') → 'abxyzab'	'abxyzab'	OK	
+# other tests OK
+
+
+
+# NON_START
+# Given 2 strings, return their concatenation, except omit the first char of each.
+# The strings will be at least length 1.
+#
+# non_start('Hello', 'There') → 'ellohere'
+# non_start('java', 'code') → 'avaode'
+# non_start('shotl', 'java') → 'hotlava'
+
+def non_start(a, b):
+  return a[1:] + b[1:]
+
+# non_start('Hello', 'There') → 'ellohere'	'ellohere'	OK	
+# non_start('java', 'code') → 'avaode'	'avaode'	OK	
+# non_start('shotl', 'java') → 'hotlava'	'hotlava'	OK	
+# non_start('ab', 'xy') → 'by'	'by'	OK	
+# non_start('ab', 'x') → 'b'	'b'	OK	
+# non_start('x', 'ac') → 'c'	'c'	OK	
+# non_start('a', 'x') → ''	''	OK	
+# non_start('kit', 'kat') → 'itat'	'itat'	OK	
+# non_start('mart', 'dart') → 'artart'	'artart'	OK	
+# other tests OK
+
+
+
+# LEFT2
+# Given a string, return a "rotated left 2" version where the first 2 chars are moved to the end.
+# The string length will be at least 2.
+#
+# left2('Hello') → 'lloHe'
+# left2('java') → 'vaja'
+# left2('Hi') → 'Hi'
+
+def left2(str):
+  return str[2:] + str[:2]
+
+# left2('Hello') → 'lloHe'	'lloHe'	OK	
+# left2('java') → 'vaja'	'vaja'	OK	
+# left2('Hi') → 'Hi'	'Hi'	OK	
+# left2('code') → 'deco'	'deco'	OK	
+# left2('cat') → 'tca'	'tca'	OK	
+# left2('12345') → '34512'	'34512'	OK	
+# left2('Chocolate') → 'ocolateCh'	'ocolateCh'	OK	
+# left2('bricks') → 'icksbr'	'icksbr'	OK	
+# other tests OK
