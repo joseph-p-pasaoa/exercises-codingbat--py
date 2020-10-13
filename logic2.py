@@ -1,6 +1,9 @@
 # LOGIC-2
 
 
+import math
+
+
 # MAKE_BRICKS
 # We want to make a row of bricks that is goal inches long. We have a number of small bricks
 # (1 inch each) and big bricks (5 inches each). Return True if it is possible to make the goal
